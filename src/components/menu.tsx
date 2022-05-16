@@ -23,6 +23,7 @@ import { SignIn } from "./SignIn";
 import { useMemo } from "react";
 import { NavButton } from "./types";
 import { Styles } from "../types/types";
+import LyricsIcon from "@mui/icons-material/Lyrics";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
@@ -91,38 +92,13 @@ export const Menu = () => {
       },
       {
         text: "Albums",
-        icon: <AlbumIcon />,
+        icon: <LyricsIcon />,
         onClick: () => navigate("/album"),
       },
       {
         text: "Singer",
-        icon: <AlbumIcon />,
+        icon: <LibraryMusicIcon />,
         onClick: () => navigate("/singer"),
-      },
-    ],
-    [navigate]
-  );
-  const adminButtons: NavButton[] = useMemo(
-    () => [
-      {
-        text: "Genre",
-        icon: <LibraryMusicIcon />,
-        onClick: () => navigate("/admin/genres"),
-      },
-      {
-        text: "Songs",
-        icon: <LibraryMusicIcon />,
-        onClick: () => navigate("/admin/songs"),
-      },
-      {
-        text: "Singers",
-        icon: <MenuIcon />,
-        onClick: () => navigate("/admin/singers"),
-      },
-      {
-        text: "Albums",
-        icon: <MenuIcon />,
-        onClick: () => navigate("/admin/albums"),
       },
     ],
     [navigate]

@@ -38,3 +38,6 @@ export interface Genre {
   _id: string;
   description: string;
 }
+interface FormProps {
+  saveFace: any;
+}

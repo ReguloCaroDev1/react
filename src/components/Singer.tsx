@@ -1,12 +1,17 @@
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
+  Input,
+  Modal,
+  TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { Info } from "../service/Info";
+import React, { useEffect, useRef, useState } from "react";
+
+import Button from "@mui/material/Button";
 import { Menu } from "./menu";
 
 export const Singer = () => {
@@ -30,24 +35,56 @@ export const Singer = () => {
     console.log(dataLog);
     setSinger(dataLog);
   };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const style = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
 
   return (
     <>
       <Menu />
-      <div>
+      <div className="division">
+        <h2>Artistas</h2>
+      </div>
+
+      <div className="cajas">
         {singer.map((resp) => (
-          <Card sx={{ maxWidth: 345 }} key={resp.id}>
-            <CardActionArea>
-              <CardMedia component="img" height="140" image={resp.image} />
-              <CardContent>
-                <Typography gutterBottom variant="h4" component="div">
-                  {resp.stageName}
-                </Typography>
-                <Typography gutterBottom variant="h5" component="div">
+          <Card
+            sx={{
+              width: "30%",
+              margin: "1%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+            }}
+            key={resp.id}
+          >
+            <CardMedia
+              component="img"
+              height="140"
+              //image={resp.image}
+              src={`data:image/jpeg;base64,${resp.image}`}
+            />
+            <CardContent>
+              <Typography variant="h4" component="div">
+                {resp.stageName}
+              </Typography>
+              <div className="dividirBoton">
+                <Typography variant="h5" component="div">
                   {resp.nationality}
                 </Typography>
-              </CardContent>
-            </CardActionArea>
+              </div>
+            </CardContent>
           </Card>
         ))}
       </div>

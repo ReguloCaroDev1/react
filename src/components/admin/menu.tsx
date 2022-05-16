@@ -82,11 +82,6 @@ export const AdminMenu = () => {
   const adminButtons: NavButton[] = useMemo(
     () => [
       {
-        text: "Genre",
-        icon: <LibraryMusicIcon />,
-        onClick: () => navigate("/admin/genres"),
-      },
-      {
         text: "Songs",
         icon: <LibraryMusicIcon />,
         onClick: () => navigate("/admin/songs"),

@@ -5,13 +5,14 @@ import { Menu } from "./components/menu";
 import { Route, Router, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Styles } from "./types/types";
-import { Songs } from "./components/Songs";
+import Songs from "./components/Songs";
 import { Album } from "./components/Album";
 import { Singer } from "./components/Singer";
 import { SignUp } from "./components/SingUp";
 import { AdminAlbum } from "./components/admin/AdminAlbum";
 import { AdminSinger } from "./components/admin/AdminSinger";
-import { AdminSongs } from "./components/admin/AdminSongs";
+import AdminSongs from "./components/admin/AdminSongs";
+import Home from "./components/Home";
 
 const App = () => {
   const styles: Styles = {
@@ -26,7 +27,7 @@ const App = () => {
     <>
       <Box sx={styles.container}>
         <Routes>
-          <Route path="/" element={<Menu />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/songs" element={<Songs />} />
           <Route path="/album" element={<Album />} />
